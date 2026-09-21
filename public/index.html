@@ -1,5 +1,914 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head><meta charset="UTF-8"><title>innodanc</title></head>
-<body><h1>頁面製作中</h1></body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>innodanc 伊諾 — 把客廳變成你的 VIP 私人運動館</title>
+<meta name="description" content="到府教學平台,一鍵預約專業皮拉提斯、瑜珈、舞蹈、肌力教練,準時到府,免通勤、免等待。">
+<!-- 網站正式上線後，請將下面的網域從 innodanc.com 改成真正的正式網址 -->
+<link rel="canonical" href="https://innodanc.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:site_name" content="innodanc 伊諾">
+<meta property="og:title" content="innodanc 伊諾 — 把客廳變成你的 VIP 私人運動館">
+<meta property="og:description" content="到府教學平台,一鍵預約專業皮拉提斯、瑜珈、舞蹈、肌力教練,準時到府,免通勤、免等待。">
+<meta property="og:url" content="https://innodanc.com/">
+<!-- 上線後請改為絕對網址，例如 https://innodanc.com/images/hero-bg-1.jpg -->
+<meta property="og:image" content="images/hero-bg-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="innodanc 伊諾 — 把客廳變成你的 VIP 私人運動館">
+<meta name="twitter:description" content="到府教學平台,一鍵預約專業皮拉提斯、瑜珈、舞蹈、肌力教練,準時到府,免通勤、免等待。">
+<meta name="twitter:image" content="images/hero-bg-1.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "伊諾 innodanc",
+  "alternateName": "伊諾頓股份有限公司",
+  "url": "https://innodanc.com/",
+  "logo": "images/logo-horizontal.png",
+  "description": "到府教學平台，一鍵預約專業皮拉提斯、瑜珈、舞蹈、肌力教練，準時到府。",
+  "sameAs": [
+    "https://facebook.com/INNODANC",
+    "https://instagram.com/innodanc"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "松德路 100 號",
+    "addressLocality": "信義區",
+    "addressRegion": "台北市",
+    "addressCountry": "TW"
+  }
+}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#FF5A36;
+    --accent-dark:#E64A28;
+    --dark:#0B1420;
+    --dark-2:#121D2C;
+    --light-bg:#F5F7F8;
+    --white:#FFFFFF;
+    --text:#1B2430;
+    --text-soft:#5B6672;
+    --border:#E4E8EB;
+    --radius-pill:999px;
+    --radius-card:18px;
+    --shadow:0 10px 30px rgba(11,20,32,0.08);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Outfit',system-ui,-apple-system,'Noto Sans TC',sans-serif;
+    color:var(--text);
+    background:var(--white);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:88px 0;}
+  @media (max-width:768px){ section{padding:56px 0;} }
+
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,90,54,0.1);
+    color:var(--accent-dark);
+    font-weight:600;font-size:13px;letter-spacing:.04em;
+    padding:6px 16px;border-radius:var(--radius-pill);
+    margin-bottom:16px;
+  }
+  .kicker.on-dark{background:rgba(255,255,255,0.1);color:#FFD8CB;}
+  h1,h2,h3{font-weight:700;margin:0;line-height:1.3;}
+  h2{font-size:34px;margin-bottom:14px;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head p{color:var(--text-soft);font-size:16px;margin:0;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 30px;border-radius:var(--radius-pill);
+    font-weight:600;font-size:15px;white-space:nowrap;
+    border:2px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(255,90,54,0.32);}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);}
+  .btn-outline{border-color:rgba(255,255,255,0.55);color:#fff;background:transparent;}
+  .btn-outline:hover{background:rgba(255,255,255,0.12);}
+  .btn-outline-dark{border-color:var(--dark);color:var(--dark);background:transparent;}
+  .btn-outline-dark:hover{background:var(--dark);color:#fff;}
+  .btn-sm{padding:10px 20px;font-size:13px;}
+
+  /* Placeholder image blocks */
+  .img-ph{
+    position:relative;
+    background:
+      repeating-linear-gradient(135deg, #E9EDEF 0 14px, #DFE4E7 14px 28px);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    display:flex;align-items:center;justify-content:center;
+    color:#8D98A3;font-weight:600;font-size:14px;text-align:center;
+    overflow:hidden;min-height:120px;
+  }
+  .img-ph span{
+    background:rgba(255,255,255,0.85);
+    padding:6px 14px;border-radius:var(--radius-pill);
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .todo{
+    display:inline-block;
+    background:#FFF4D6;color:#8A6400;
+    border:1px dashed #E0B33C;
+    border-radius:8px;
+    padding:2px 8px;font-size:13px;font-weight:600;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.02em;}
+  .logo img{height:36px;width:auto;border-radius:8px;display:block;}
+  .nav-links{display:flex;align-items:center;gap:34px;font-weight:500;font-size:15px;color:var(--text-soft);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .burger{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--text);}
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:var(--dark);
+    color:#fff;
+    padding:72px 0 0;
+    overflow:hidden;
+  }
+  .hero-grid{
+    position:relative;z-index:2;
+    padding-bottom:170px;
+  }
+  .hero-grid > div{max-width:600px;}
+  @media (max-width:900px){ .hero-grid{padding-bottom:90px;} }
+  .hero h1{font-size:46px;margin-bottom:20px;}
+  .hero h1 .accent{color:var(--accent);}
+  @media (max-width:560px){ .hero h1{font-size:32px;} }
+  .hero p.sub{color:#C7CFD6;font-size:17px;max-width:480px;margin-bottom:32px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .badges{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:#C7CFD6;}
+  .badges span{display:flex;align-items:center;gap:8px;}
+
+  /* Hero 全螢幕背景輪播（Ploto 手法：整片背景照 + 深色遮罩 + 左側文字） */
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+  .hero-bg-slide.is-active{opacity:1;}
+  .hero-bg-slide .img-ph{width:100%;height:100%;border-radius:0;border:none;}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .hero-bg-overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(11,20,32,.1) 0%, rgba(11,20,32,.6) 78%, var(--dark) 100%);
+  }
+  /* 手機版文字改滿版寬度，左右漸層改成均勻深色遮罩，避免右側疊在較亮的照片上看不清楚 */
+  @media (max-width:900px){
+    .hero-bg-overlay{
+      background:
+        linear-gradient(180deg, rgba(11,20,32,.6) 0%, rgba(11,20,32,.68) 60%, var(--dark) 100%);
+    }
+  }
+  .hero-bg-dots{position:absolute;bottom:190px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px;}
+  .hero-bg-dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,0.4);cursor:pointer;padding:0;}
+  .hero-bg-dots button.active{background:#fff;width:22px;border-radius:5px;}
+  @media (max-width:900px){ .hero-bg-dots{bottom:110px;} }
+
+  /* Hero 下方疊壓卡片列（服務項目，Ploto 手法：卡片上半疊在 Hero 深色底上） */
+  .services-overlap{position:relative;z-index:5;margin-top:-130px;}
+  @media (max-width:900px){ .services-overlap{margin-top:-60px;} }
+  @media (max-width:560px){ .services-overlap{margin-top:-30px;} }
+
+  /* HERO 內媒體報導（原獨立媒體報導帶併入 Hero，信任徽章下方） */
+  .hero-media{
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);
+  }
+  .hero-media-label{font-size:12.5px;font-weight:600;letter-spacing:.04em;color:#8A94A0;white-space:nowrap;}
+  .hero-stat{font-size:13px;color:#E4E8EB;white-space:nowrap;}
+  .hero-stat strong{color:var(--accent);font-weight:700;}
+  .hero-media-sep{width:1px;height:14px;background:rgba(255,255,255,0.18);}
+  .hero-media-item{
+    display:flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius-pill);padding:6px 16px 6px 6px;
+    font-size:13px;color:#E4E8EB;
+  }
+  .hero-media-item:hover{background:rgba(255,255,255,0.12);}
+  .hero-media-item .logo-ph{
+    width:28px;height:28px;border-radius:50%;flex-shrink:0;
+    background:#fff;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-media-item .logo-ph img{width:100%;height:100%;object-fit:cover;}
+
+  /* SERVICES — Ploto 風格：照片 + 圓形 icon 徽章重疊 + 編號 */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 24px;}
+  @media (max-width:900px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  /* 手機版：改為水平輪播，避免一長串卡片把頁面拉得過長 */
+  .services-tabs{display:none;}
+  @media (max-width:560px){
+    .services-tabs{
+      display:flex;gap:8px;overflow-x:auto;margin-bottom:18px;
+      -ms-overflow-style:none;scrollbar-width:none;
+    }
+    .services-tabs::-webkit-scrollbar{display:none;}
+    .services-tab{
+      flex-shrink:0;white-space:nowrap;cursor:pointer;
+      background:#fff;border:1px solid var(--border);color:var(--text-soft);
+      font-size:13px;font-weight:600;border-radius:var(--radius-pill);
+      padding:8px 16px;transition:background .2s ease,color .2s ease,border-color .2s ease;
+    }
+    .services-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+    .services-grid{
+      display:flex;grid-template-columns:none;gap:16px;
+      overflow-x:auto;scroll-snap-type:x mandatory;
+      padding:4px 24px 16px 4px;margin:0 -4px;
+      -ms-overflow-style:none;scrollbar-width:none;
+    }
+    .services-grid::-webkit-scrollbar{display:none;}
+    .services-grid .p-card{flex:0 0 82%;scroll-snap-align:center;}
+  }
+  .p-card{
+    background:#fff;border:1px solid var(--border);border-radius:20px;
+    box-shadow:var(--shadow);overflow:visible;
+  }
+  .p-card-media{position:relative;border-radius:20px 20px 0 0;overflow:hidden;}
+  .p-card-media .img-ph{border-radius:20px 20px 0 0;border:none;aspect-ratio:1/1;}
+  .p-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+  .p-card-body{padding:24px 22px;}
+  .p-card-body .tag{color:var(--text-soft);font-size:12px;letter-spacing:.06em;font-weight:600;display:block;margin-bottom:6px;}
+  .p-card-body h3{font-size:19px;margin-bottom:8px;}
+  .p-card-body p.short{color:var(--text-soft);font-size:14.5px;margin:0;}
+  .p-card-body p.full{
+    display:none;color:var(--text-soft);font-size:14.5px;
+    border-top:1px dashed var(--border);padding-top:14px;margin-top:12px;
+  }
+  .p-card.open .full{display:block;}
+  .p-card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:18px;}
+  .p-card-arrow{
+    display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+    background:rgba(255,90,54,0.12);color:var(--accent-dark);
+    border:none;cursor:pointer;font-size:13.5px;font-weight:600;
+    border-radius:var(--radius-pill);padding:8px 16px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .p-card-arrow:hover{background:var(--accent);color:#fff;}
+  .p-card-num{font-size:38px;font-weight:800;color:var(--border);line-height:1;user-select:none;}
+
+  /* HOW IT WORKS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:768px){ .steps{grid-template-columns:1fr;} }
+  .step-card{background:var(--light-bg);border-radius:var(--radius-card);padding:30px 26px;position:relative;}
+  .step-num{
+    width:40px;height:40px;border-radius:50%;background:var(--dark);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:18px;
+  }
+  .step-card h3{font-size:18px;margin-bottom:8px;}
+  .step-card p{color:var(--text-soft);font-size:14.5px;margin:0;}
+
+  /* WHY + FAQ */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:64px;}
+  @media (max-width:768px){ .why-grid{grid-template-columns:1fr;} }
+  .why-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-card);padding:24px;box-shadow:var(--shadow);}
+  .why-card h3{font-size:17px;margin-bottom:12px;}
+  .why-row{display:flex;gap:8px;font-size:13.5px;margin-bottom:6px;}
+  .why-row.good{color:#1E824C;}
+  .why-row.bad{color:#B3423A;}
+
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:20px 4px;display:flex;justify-content:space-between;align-items:center;
+    font-weight:600;font-size:16px;color:var(--text);
+  }
+  .faq-q .plus{font-size:20px;color:var(--accent);transition:transform .2s ease;flex-shrink:0;margin-left:16px;}
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+  .faq-item.open .faq-a{max-height:260px;}
+  .faq-a-inner{padding:0 4px 20px;color:var(--text-soft);font-size:14.5px;}
+
+  /* SAFETY */
+  .safety{background:var(--dark);color:#fff;}
+  .safety-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-bottom:36px;}
+  @media (max-width:900px){ .safety-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .safety-grid{grid-template-columns:1fr;} }
+  .safety-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-card);padding:22px;}
+  .safety-item .icon{
+    width:40px;height:40px;border-radius:50%;background:rgba(255,90,54,0.2);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:18px;
+  }
+  .safety-item h3{font-size:15.5px;margin-bottom:6px;}
+  .safety-item p{font-size:13.5px;color:#B7C0C9;margin:0;}
+  /* TEACHERS — 改為長條訊息，不佔太多版面 */
+  .teach-bar{
+    display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+    background:var(--light-bg);border:1px solid var(--border);border-radius:var(--radius-card);
+    padding:32px 40px;
+  }
+  .teach-bar-text{max-width:640px;}
+  .teach-bar-text h2{font-size:21px;margin:0 0 6px;}
+  .teach-bar-text p{color:var(--text-soft);font-size:14.5px;margin:0;}
+  .teach-bar .btn{flex-shrink:0;}
+  @media (max-width:640px){
+    .teach-bar{padding:26px 22px;text-align:center;justify-content:center;}
+    .teach-bar-text{max-width:none;}
+  }
+
+  /* FINAL CTA */
+  .final-cta{
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color:#fff;text-align:center;border-radius:28px;
+    padding:64px 32px;margin:0 24px;
+  }
+  .final-cta h2{color:#fff;font-size:32px;}
+  .final-cta p{color:rgba(255,255,255,0.9);max-width:520px;margin:0 auto 28px;}
+  .final-cta .btn-outline{border-color:rgba(255,255,255,0.7);}
+
+  /* PRIVACY POLICY（可展開，不放在主選單，僅供錨點連結／對外提交網址使用） */
+  .policy-block{border-top:1px solid var(--border);padding:28px 0 8px;}
+  .policy-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:10px 4px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+    font-weight:600;font-size:15px;color:var(--text-soft);
+  }
+  .policy-q .plus{font-size:20px;color:var(--accent);transition:transform .2s ease;flex-shrink:0;}
+  .policy-block.open .policy-q .plus{transform:rotate(45deg);}
+  .policy-block.open .policy-q{color:var(--text);}
+  .policy-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .policy-block.open .policy-a{max-height:4000px;}
+  .policy-a-inner{padding:8px 4px 28px;color:var(--text-soft);font-size:14px;line-height:1.85;}
+  .policy-a-inner h4{font-size:15px;color:var(--text);margin:22px 0 8px;}
+  .policy-a-inner h4:first-child{margin-top:4px;}
+  .policy-a-inner p{margin:0 0 4px;}
+  .policy-a-inner .policy-foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--text-soft);}
+
+  /* FOOTER */
+  footer{background:var(--dark);color:#B7C0C9;padding:56px 0 28px;margin-top:80px;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:32px;}
+  .footer-logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:19px;}
+  .footer-logo img{height:34px;width:auto;border-radius:8px;display:block;}
+  .footer-info{font-size:13px;line-height:1.9;color:#8892A0;max-width:340px;}
+  .footer-social{display:flex;gap:12px;}
+  .footer-social a{
+    width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;
+    transition:background .15s ease;
+  }
+  .footer-social a:hover{background:var(--accent);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;font-size:12.5px;color:#697180;}
+
+  .fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .fade-up.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><img src="images/logo-horizontal.png" alt="innodanc 伊諾"></a>
+    <nav class="nav-links">
+      <a href="#services">服務</a>
+      <a href="#how-it-works">如何開始</a>
+      <a href="#faq">FAQ</a>
+      <a href="#safety">安心保障</a>
+      <a href="#teach">成為教師</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="https://lin.ee/4qjc8dP" target="_blank" rel="noopener">加入官方 LINE</a>
+      <button class="burger" id="burgerBtn" aria-label="選單">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 2. HERO -->
+  <section class="hero" style="padding-top:56px;">
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-bg-slide is-active">
+        <div class="img-ph"><span>Hero 背景照</span></div>
+        <img class="hero-photo" src="images/hero-bg-1.jpg" alt="" data-base="images/hero-bg-1" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+      </div>
+      <!-- 之後要加照片變輪播：複製上面這個 .hero-bg-slide 區塊，圖檔依序命名
+           images/hero-bg-2.jpg、images/hero-bg-3.jpg... 貼在這裡即可，
+           下面的 JS 跟圓點導航會自動偵測張數，不用再改程式碼 -->
+      <div class="hero-bg-overlay"></div>
+    </div>
+    <div class="hero-bg-dots" id="heroBgDots"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker on-dark">✓ 到府教學平台</span>
+        <h1>把客廳變成你的<br><span class="accent">VIP 私人運動館</span></h1>
+        <p class="sub">你的意志力，不該消耗在塞車與下雨天。一鍵預約，專業皮拉提斯／瑜珈教練準時按鈴。</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://lin.ee/4qjc8dP" target="_blank" rel="noopener">加入官方 LINE 預約</a>
+          <a class="btn btn-outline" href="#services" id="learnMoreBtn">了解更多</a>
+        </div>
+        <div class="badges">
+          <span>🔒 教師 100% 認證</span>
+          <span>⏰ 時間完全彈性</span>
+          <span>🏠 到府一對一教學</span>
+        </div>
+        <div class="hero-media">
+          <span class="hero-stat">全台 <strong>16,000+</strong> 會員</span>
+          <span class="hero-media-sep"></span>
+          <span class="hero-media-label">媒體報導</span>
+          <a class="hero-media-item" href="https://www.ctee.com.tw/news/20250706700349-431207" target="_blank" rel="noopener">
+            <span class="logo-ph"><img src="images/logo-ctee.png" alt="工商時報"></span>
+            工商時報專訪
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 服務項目（疊壓在 Hero 底部，Ploto 手法） -->
+  <section id="services" style="padding:0 0 96px;">
+    <div class="wrap services-overlap">
+      <h2 class="sr-only">服務總覽：到府皮拉提斯、瑜珈、舞蹈與肌力訓練課程</h2>
+      <div class="services-tabs" id="servicesTabs">
+        <button class="services-tab active" data-idx="0">皮拉提斯</button>
+        <button class="services-tab" data-idx="1">瑜珈</button>
+        <button class="services-tab" data-idx="2">流行舞蹈</button>
+        <button class="services-tab" data-idx="3">ZUMBA</button>
+        <button class="services-tab" data-idx="4">肌力訓練</button>
+        <button class="services-tab" data-idx="5">芭蕾與中國舞</button>
+      </div>
+      <div class="services-grid" id="servicesGrid">
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>皮拉提斯上課照</span>
+              <img class="p-card-photo" src="images/service-pilates.jpg" alt="皮拉提斯" data-base="images/service-pilates" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">PILATES</span>
+            <h3>皮拉提斯</h3>
+            <p class="short">核心與呼吸控制，改善腰酸背痛，一張瑜珈墊就能開始。</p>
+            <p class="full">以墊上皮拉提斯為主，透過微小動作與呼吸控制喚醒深層核心肌群，改善腰酸背痛與骨盆歪斜；不需大型器材，一張瑜珈墊即可。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">01</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>瑜珈上課照</span>
+              <img class="p-card-photo" src="images/service-yoga.jpg" alt="瑜珈" data-base="images/service-yoga" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">YOGA</span>
+            <h3>瑜珈</h3>
+            <p class="short">從基礎到進階四種流派，依你的程度量身安排。</p>
+            <p class="full">提供基礎瑜珈、流動瑜珈（Vinyasa）、陰瑜珈（Yin）、阿斯坦加（Ashtanga）四種流派，依學員經驗分層安排。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">02</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>流行舞蹈上課照</span>
+              <img class="p-card-photo" src="images/service-pop-dance.jpg" alt="流行舞蹈" data-base="images/service-pop-dance" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">POP DANCE</span>
+            <h3>流行舞蹈</h3>
+            <p class="short">K-Pop、街舞零基礎入門，邊跳邊燃脂。</p>
+            <p class="full">K-Pop MV 舞蹈、流行街舞入門，零基礎也能輕鬆享受音樂，快樂燃脂。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">03</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>ZUMBA 上課照</span>
+              <img class="p-card-photo" src="images/service-zumba.jpg" alt="ZUMBA 有氧" data-base="images/service-zumba" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">ZUMBA &amp; CARDIO</span>
+            <h3>ZUMBA 有氧</h3>
+            <p class="short">拉丁節奏燃脂紓壓，不用硬背舞步。</p>
+            <p class="full">拉丁節奏結合有氧運動，不需硬記複雜舞步，適合想爆汗、釋壓的學員。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">04</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>肌力訓練上課照</span>
+              <img class="p-card-photo" src="images/service-strength.jpg" alt="肌力與體能訓練" data-base="images/service-strength" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">STRENGTH TRAINING</span>
+            <h3>肌力與體能訓練</h3>
+            <p class="short">科學化阻力訓練，提升肌力、保護關節。</p>
+            <p class="full">利用自身體重或輕量輔具（彈力帶、小啞鈴）進行科學化阻力訓練，提升肌力、保護關節。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">05</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-card-media">
+            <div class="img-ph"><span>芭蕾與中國舞上課照</span>
+              <img class="p-card-photo" src="images/service-ballet.jpg" alt="芭蕾與中國舞" data-base="images/service-ballet" data-exts="jpg,jpeg,png,webp" data-tried="0" onerror="var t=this.dataset.tried|0,e=this.dataset.exts.split(',');t++;if(t<e.length){this.dataset.tried=t;this.src=this.dataset.base+'.'+e[t];}else{this.style.display='none';}">
+            </div>
+          </div>
+          <div class="p-card-body">
+            <span class="tag">BALLET &amp; CHINESE DANCE</span>
+            <h3>芭蕾與中國舞</h3>
+            <p class="short">融合東西方優雅線條，雕塑天鵝頸與腿部曲線。</p>
+            <p class="full">融合東方古典韻味與西方芭蕾的優雅，改善駝背圓肩，雕塑天鵝頸與腿部線條。</p>
+            <div class="p-card-bottom">
+              <button class="p-card-arrow" aria-label="展開完整介紹">展開說明 +</button>
+              <span class="p-card-num">06</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 如何開始 -->
+  <section id="how-it-works" style="background:var(--light-bg);">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="kicker">✓ How It Works</span>
+        <h2>三步驟，開始你的第一堂課</h2>
+      </div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>選擇課程與教練</h3>
+          <p>依課程類型、地區、時段篩選，找到最適合的教練。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>一鍵預約</h3>
+          <p>送出預約後，教練幾分鐘內確認上課時間。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>教練到府上課</h3>
+          <p>準時帶器材上門，你只需要準備空間與自己。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 為什麼選擇到府教學 + FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="kicker">✓ Why Choose Us</span>
+        <h2>為什麼選擇到府教學？</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>⏰ 時間自由（下課秒洗澡）</h3>
+          <div class="why-row good">✅ 不用通勤、不用搶停車位</div>
+          <div class="why-row bad">❌ 去健身房：通勤 30 分＋等器材 15 分</div>
+        </div>
+        <div class="why-card">
+          <h3>🔒 極致隱私（穿睡衣也能上課）</h3>
+          <div class="why-row good">✅ 專注自己，不用在意他人眼光</div>
+          <div class="why-row bad">❌ 團體課：20 人一起做，教練看不到你</div>
+        </div>
+        <div class="why-card">
+          <h3>🛡️ 絕對安心（嚴格把關的教師品質）</h3>
+          <div class="why-row good">✅ 身份驗證、證照審核、教學評鑑</div>
+          <div class="why-row bad">❌ 自己找：資歷難查證、品質無保障</div>
+        </div>
+      </div>
+
+      <div class="section-head center" style="margin-top:8px;">
+        <span class="kicker">✓ FAQ</span>
+        <h2>常見問題</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">家裡空間夠大嗎？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">一般來說，只要有一個瑜珈墊大小的空間（約 2m × 1m）就能上課。教練會依據課程內容調整動作，不用擔心空間不足。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">費用怎麼計算？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">依課程類型與時長計費，一般為 60 分鐘一堂。首次體驗享有優惠價，詳細費用請透過官方 LINE 諮詢。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">教練到府安全嗎？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">我們嚴格把關教師資格，並提供完整安心保障機制，詳見下方「<a href="#safety" style="color:var(--accent-dark);font-weight:600;">安心保障</a>」。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">可以指定教練嗎？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">可以！你可以根據教練的專長、評價、距離等條件選擇最適合你的教練，也可以讓平台為你推薦。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">如何取消或更改預約？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">課程開始前 24 小時可免費取消或改期。透過 LINE 或平台即可快速操作，無額外手續費。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">需要自備器材嗎？ <span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">基本器材如瑜珈墊，教練會攜帶。若需要特殊器材（如彈力帶、啞鈴），教練會事先溝通確認。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 安心保障 -->
+  <section id="safety" class="safety">
+    <div class="wrap">
+      <div class="section-head center" style="max-width:600px;">
+        <span class="kicker on-dark">✓ 安心保障</span>
+        <h2 style="color:#fff;">每一堂課，都有完整的安心機制</h2>
+      </div>
+      <div class="safety-grid">
+        <div class="safety-item">
+          <div class="icon">🚪</div>
+          <h3>專業直送到府</h3>
+          <p>教練準時帶器材上門，不用出門通勤。</p>
+        </div>
+        <div class="safety-item">
+          <div class="icon">📋</div>
+          <h3>嚴選師資透明</h3>
+          <p>預先提供教練簡歷，確認後才排課。</p>
+        </div>
+        <div class="safety-item">
+          <div class="icon">👩</div>
+          <h3>女性專屬選項</h3>
+          <p>優先安排優質女教師，指定更安心。</p>
+        </div>
+        <div class="safety-item">
+          <div class="icon">☁️</div>
+          <h3>雲端管家</h3>
+          <p>伊諾機器人電子課卡，課程紀錄全追蹤。</p>
+        </div>
+        <div class="safety-item">
+          <div class="icon">🔐</div>
+          <h3>個資防護：銀行級資安保障</h3>
+          <p>確定開課後才提供聯絡方式給該教師，資料傳輸與儲存皆採銀行級加密。完整隱私權政策請見 <a href="#privacy-policy" style="color:#fff;text-decoration:underline;">隱私權政策</a>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 教師招募（長條訊息，不佔太多版面） -->
+  <section id="teach" style="padding:40px 0;">
+    <div class="wrap">
+      <div class="teach-bar">
+        <div class="teach-bar-text">
+          <span class="kicker" style="margin-bottom:10px;">✓ 成爲教師</span>
+          <h2>想獲得更多教學案件？成為運動界的 Uber 夥伴</h2>
+          <p>時間自由自己排課・案源穩定平台媒合・無須推銷專心教學</p>
+        </div>
+        <a class="btn btn-primary" href="https://lin.ee/wJlmer7" target="_blank" rel="noopener">加入教師專屬 LINE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. 最後 CTA -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>準備好在家運動了嗎？</h2>
+        <p>一鍵預約，專業教練準時按鈴到府。把時間留給自己，其餘交給我們。</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a class="btn" style="background:#fff;color:var(--accent-dark);" href="https://lin.ee/4qjc8dP" target="_blank" rel="noopener">加入官方 LINE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 隱私權政策（可展開區塊；不放在主選單，僅透過錨點連結 #privacy-policy 存取，可直接把本頁網址＋此錨點提供給需要的單位） -->
+  <div class="wrap">
+    <div class="policy-block" id="privacy-policy">
+      <button class="policy-q" aria-expanded="false">
+        伊諾 InnoDanc 隱私權保護政策
+        <span class="plus">+</span>
+      </button>
+      <div class="policy-a">
+        <div class="policy-a-inner">
+          <p>歡迎您來到伊諾 InnoDanc（以下簡稱「本平台」）。我們深知「家」是您最私密、最需要安全感的絕對領域。因此，在您享受專屬到府教學服務的同時，保護您的個人隱私與資訊安全，是伊諾最不容妥協的首要任務。</p>
+          <p>為了讓您安心使用本平台的各項服務，請詳閱以下隱私權保護政策：</p>
+
+          <h4>1. 個人資料的蒐集與內部使用</h4>
+          <p>當您透過官方 LINE、網站預約或註冊成為學員時，我們會請您提供必要的個人資訊（包含但不限於：姓名、聯絡電話、詳細上課地址、以及為了客製化課程所需的身體狀況評估）。</p>
+          <p><strong>最高原則：</strong>您所提供的所有資料，僅限於伊諾 InnoDanc 內部營運、排課管理及提升服務品質使用。</p>
+          <p><strong>拒絕未經同意的分享：</strong>在未取得您的明確同意之前，伊諾絕對不會將您的個人資訊出售、交換或提供給任何與您的課程不相關的第三方機構或個人。</p>
+
+          <h4>2. 嚴格的「分階段」資訊揭露機制</h4>
+          <p>我們理解您對於陌生人得知居家地址的顧慮。因此，伊諾在媒合老師的過程中，採取業界最高標準的「分階段資訊保護」機制：</p>
+          <p><strong>第一階段（安排老師階段）：</strong>在系統尋找與確認合適師資的過程中，我們絕對不會將您的聯絡電話、真實姓名與詳細門牌地址提供給平台上的任何老師。老師僅能得知大致區域（如：信義區）與需求項目，以評估是否接單。</p>
+          <p><strong>第二階段（課程確認階段）：</strong>只有在為您「完全確定並安排好」專屬授課老師後，為了確保老師能準時抵達且順利與您聯繫，我們才會將您的聯絡電話與詳細地址，僅提供給該位即將為您服務的專屬老師。</p>
+
+          <h4>3. 授課教師的保密義務</h4>
+          <p>伊諾平台上的所有合作教師，在正式上線接單前，均已通過嚴格的面試與身份審核（包含良民證查驗），並與本公司簽署具備法律效力的《保密協定》。</p>
+          <p>老師僅能在「當次授課」的必要範圍內使用您的聯絡資訊。嚴禁老師私下截圖、外流、或將您的資料用於任何非伊諾平台安排的商業推銷或私人用途。若有違反，本平台將採取最嚴厲的法律行動以捍衛您的權益。</p>
+
+          <h4>4. 資料安全保護措施</h4>
+          <p>我們採用嚴格的伺服器防護機制與存取權限控管。僅有負責處理您專案的內部核心行政人員，在擁有專屬權限的情況下，才能接觸您的完整資料，從系統源頭阻斷資料外洩的風險。</p>
+
+          <h4>5. 您的隱私權利</h4>
+          <p>您隨時可以透過伊諾的官方 LINE 客服，行使以下權利：</p>
+          <p>查詢或請求閱覽您的個人資料。<br>請求補充或更正有誤的資訊。<br>當您不再使用本平台服務時，可請求停止蒐集、處理、利用或徹底刪除您的個人資料。</p>
+
+          <h4>6. 政策修訂</h4>
+          <p>為因應法規變更或服務升級，伊諾 InnoDanc 保留隨時修訂本隱私權政策的權利。重大變更時，我們將透過官方 LINE 或是網站公告主動通知您，確保您的權益不受影響。</p>
+
+          <div class="policy-foot">
+            伊諾頓股份有限公司 (Innodanc Co., Ltd.)<br>
+            保護您的隱私，如同保護您的健康一樣用心。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 9. 頁尾 -->
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo"><img src="images/logo-horizontal.png" alt="innodanc 伊諾"></div>
+        <p class="footer-info" style="margin-top:14px;">
+          伊諾頓股份有限公司<br>
+          統一編號：50778357<br>
+          台北市信義區松德路 100 號
+        </p>
+      </div>
+      <div class="footer-social">
+        <a href="https://facebook.com/INNODANC" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+        <a href="https://instagram.com/innodanc" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="https://lin.ee/4qjc8dP" target="_blank" rel="noopener" aria-label="LINE">LINE</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 伊諾頓股份有限公司. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav (simple toggle — links list shown as dropdown)
+  document.getElementById('burgerBtn').addEventListener('click', function(){
+    var links = document.querySelector('.nav-links');
+    var isShown = links.style.display === 'flex';
+    links.style.display = isShown ? 'none' : 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '76px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#fff';
+    links.style.flexDirection = 'column';
+    links.style.padding = '20px 24px';
+    links.style.borderBottom = '1px solid var(--border)';
+  });
+
+  // Hero 全螢幕背景輪播 autoplay（只有 1 張圖時自動隱藏圓點、不啟動輪播；之後加圖會自動偵測張數）
+  (function(){
+    var slides = document.querySelectorAll('#heroBg .hero-bg-slide');
+    var dotsWrap = document.getElementById('heroBgDots');
+    var idx = 0;
+    if (slides.length <= 1) {
+      dotsWrap.style.display = 'none';
+      return;
+    }
+    slides.forEach(function(s, i){
+      var d = document.createElement('button');
+      if(i===0) d.className='active';
+      d.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(d);
+    });
+    function goTo(i){
+      idx = i;
+      slides.forEach(function(s, j){ s.classList.toggle('is-active', j===i); });
+      var dots = dotsWrap.children;
+      for(var j=0;j<dots.length;j++){ dots[j].className = (j===i) ? 'active' : ''; }
+    }
+    setInterval(function(){ goTo((idx+1) % slides.length); }, 4500);
+  })();
+
+  // Service card expand
+  document.querySelectorAll('.p-card-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.p-card');
+      var opening = !card.classList.contains('open');
+      card.classList.toggle('open');
+      btn.textContent = opening ? '收合說明 −' : '展開說明 +';
+      btn.setAttribute('aria-label', opening ? '收合介紹' : '展開完整介紹');
+    });
+  });
+
+  // 服務卡片（手機版輪播）：點選分頁快速跳到該張卡片；滑動時自動高亮對應分頁
+  (function(){
+    var grid = document.getElementById('servicesGrid');
+    var tabs = document.querySelectorAll('.services-tab');
+    var cards = grid ? grid.querySelectorAll('.p-card') : [];
+    if(!grid || !tabs.length || !cards.length) return;
+    tabs.forEach(function(tab){
+      tab.addEventListener('click', function(){
+        var idx = parseInt(tab.dataset.idx, 10);
+        var card = cards[idx];
+        if(card) card.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      });
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting && entry.intersectionRatio >= 0.6){
+          var idx = Array.prototype.indexOf.call(cards, entry.target);
+          tabs.forEach(function(t){ t.classList.toggle('active', parseInt(t.dataset.idx,10) === idx); });
+        }
+      });
+    }, {root: grid, threshold: 0.6});
+    cards.forEach(function(c){ io.observe(c); });
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // 隱私權政策（可展開區塊，並支援直接用 #privacy-policy 錨點連結開啟）
+  (function(){
+    var block = document.getElementById('privacy-policy');
+    if(!block) return;
+    var btn = block.querySelector('.policy-q');
+    btn.addEventListener('click', function(){
+      block.classList.toggle('open');
+      btn.setAttribute('aria-expanded', block.classList.contains('open') ? 'true' : 'false');
+    });
+    function openIfHashMatches(){
+      if(window.location.hash === '#privacy-policy'){
+        block.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        setTimeout(function(){
+          block.scrollIntoView({behavior:'smooth', block:'start'});
+        }, 50);
+      }
+    }
+    openIfHashMatches();
+    window.addEventListener('hashchange', openIfHashMatches);
+  })();
+
+  // Fade-up on scroll
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.p-card, .step-card, .why-card, .safety-item').forEach(function(el){
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
+</script>
+
+</body>
 </html>
