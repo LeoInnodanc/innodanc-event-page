@@ -387,6 +387,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .safety-item h3{font-size:15.5px;margin-bottom:6px;}
   .safety-item p{font-size:13.5px;color:#B7C0C9;margin:0;}
+  /* KOC 真實體驗分享（Instagram 官方 embed，捲動到才載入） */
+  .koc-scroll{
+    display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:8px 24px 22px 4px;margin:0 -4px;
+    -ms-overflow-style:none;scrollbar-width:none;
+  }
+  .koc-scroll::-webkit-scrollbar{display:none;}
+  .koc-item{
+    flex:0 0 300px;scroll-snap-align:start;
+    border-radius:var(--radius-card);overflow:hidden;
+    background:var(--light-bg);border:1px solid var(--border);
+    min-height:420px;display:flex;align-items:center;justify-content:center;
+  }
+  .koc-item blockquote.instagram-media{margin:0 !important;width:100%;}
+
   /* TEACHERS — 改為長條訊息，不佔太多版面 */
   .teach-bar{
     display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
@@ -463,6 +478,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="#how-it-works">如何開始</a>
       <a href="#faq">FAQ</a>
       <a href="#safety">安心保障</a>
+      <a href="#koc">體驗分享</a>
       <a href="#teach">成為教師</a>
     </nav>
     <div class="nav-cta">
@@ -762,6 +778,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <!-- 6.5 KOC 合作夥伴實際體驗分享（Instagram 官方 embed） -->
+  <section id="koc" style="padding:64px 0 32px;">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="kicker">✓ 真實體驗</span>
+        <h2>KOC 夥伴實際體驗分享</h2>
+      </div>
+      <div class="koc-scroll">
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DbSy-8MzY2U/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DBPAb1UCuFx/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reels/DaoxUilBlBT/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbpTqiehCj1/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Db7L-lDRrHi/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+        <div class="koc-item">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbNcgEixDBu/" data-instgrm-version="14" style="width:100%;"></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- 7. 教師招募（長條訊息，不佔太多版面） -->
   <section id="teach" style="padding:40px 0;">
     <div class="wrap">
@@ -963,6 +1009,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     openIfHashMatches();
     window.addEventListener('hashchange', openIfHashMatches);
+  })();
+
+  // KOC Instagram 貼文（捲動到附近才載入 Instagram 官方 embed.js，避免拖慢首屏速度）
+  (function(){
+    var kocSection = document.getElementById('koc');
+    if(!kocSection) return;
+    var loaded = false;
+    function loadInstagramEmbed(){
+      if(loaded) return;
+      loaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://www.instagram.com/embed.js';
+      s.async = true;
+      document.body.appendChild(s);
+    }
+    if('IntersectionObserver' in window){
+      var kocIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            loadInstagramEmbed();
+            kocIo.disconnect();
+          }
+        });
+      }, {rootMargin:'300px'});
+      kocIo.observe(kocSection);
+    } else {
+      loadInstagramEmbed();
+    }
   })();
 
   // Fade-up on scroll
